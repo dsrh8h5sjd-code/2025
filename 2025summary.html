@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2025🐷🐷年度报告 </title>
+  <style>
+    /* 全局重置与基础 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
+      color: #444;
+      line-height: 1.8;
+      min-height: 100vh;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .photo-effect {
+      display: inline-block;
+      color: #ff4081;
+      font-weight: bold;
+      text-shadow: 0 0 8px rgba(255, 64, 129, 0.6);
+      animation: pulse 1.2s infinite alternate;
+    }
+    .photo-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .photo-row figure {
+      margin: 0;
+      text-align: center;
+      width: calc((100% - 32px) / 3); /* 三列 */
+      max-width: 200px;
+    }
+
+    .photo-row img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-row figcaption {
+      margin-top: 6px;
+      font-size: 0.85em;
+      color: #888; /* 灰色文字 */
+      line-height: 1.4;
+    }
+
+    /* 小屏两列 */
+    @media (max-width: 600px) {
+      .photo-row figure {
+        width: calc((100% - 16px) / 2); /* 两列 */
+      }
+    }
+
+    .event-img {
+      max-width: 70%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      margin: 12px auto;
+      display: block;
+    }
+    /* 漂浮泡泡背景 */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(2px);
+      box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.6);
+      animation: float 15s infinite ease-in-out;
+      z-index: 0;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+    /* 容器 */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 封面标题 */
+    .cover {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .cover h1 {
+      font-size: 2.4em;
+      font-weight: 300;
+      color: #5a7d9a;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .cover p {
+      font-size: 1.1em;
+      color: #777;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* 高光卡片区 */
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 50px 0;
+    }
+    .highlight-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 6px 20px rgba(90, 125, 154, 0.1);
+      border: 1px solid rgba(200, 220, 240, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .highlight-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(90, 125, 154, 0.15);
+    }
+    .card-title {
+      font-size: 1.2em;
+      color: #5a7d9a;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-text {
+      font-size: 1em;
+      color: #666;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* 高光关键词样式 */
+    .progress {https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992de873c581.webp
+      display: inline-block;
+      background: linear-gradient(135deg, #a8d8ff, #d0b3ff);
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+      transform: skew(-8deg);
+      margin: 0 2px;
+    }
+    .latte-art {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='%23ff9eb0' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") no-repeat center;
+      background-size: contain;
+      vertical-align: middle;
+      margin: 0 4px;
+      animation: wobble 3s infinite ease-in-out;
+    }
+    @keyframes wobble {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(2deg); }
+      75% { transform: rotate(-2deg); }
+    }
+    .yuanqi {
+      display: inline-block;
+      font-weight: 600;
+      color: #ff7aa2;
+      text-shadow: 0 0 8px rgba(255, 122, 162, 0.3);
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .loading {
+      display: inline-block;
+      background: rgba(230, 245, 255, 0.8);
+      border: 1px solid #c0e0ff;
+      border-radius: 12px;
+      padding: 2px 10px;
+      font-family: monospace;
+      font-size: 0.95em;
+      color: #5a9bd9;
+      animation: typing 3s steps(20) infinite;
+    }
+    @keyframes typing {
+      0% { opacity: 0; }
+      5% { opacity: 1; }
+      95% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* 分隔线 */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #cfe8ff, transparent);
+      margin: 60px 0;
+      position: relative;
+    }
+    .divider::after {
+      content: "☁️";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 0 12px;
+      color: #a8d8ff;
+      font-size: 1.2em;
+    }
+
+    /* ===== 小标题样式（重点更新！）===== */
+    .event-title {
+      font-size: 1.8em;
+      font-weight: 600;
+      color: #5a7d9a;
+      margin: 40px 0 24px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+    .event-title:hover {
+      transform: translateY(-3px);
+    }
+    .event-title::before,
+    .event-title::after {
+      content: "· · ·";
+      color: #a8d8ff;
+      font-size: 1.1em;
+      letter-spacing: 4px;
+      opacity: 0.8;
+    }
+    .event-title::before {
+      margin-right: 12px;
+    }
+    .event-title::after {
+      margin-left: 12px;
+    }
+    .event-title span {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 6px 20px;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(90, 125, 154, 0.12);
+      display: inline-block;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(168, 216, 255, 0.4);
+    }
+
+    /* 正文事件容器 */
+    .event-content {
+      font-size: 1.05em;
+      color: #555;
+      line-height: 2.0;
+      margin-top: 10px;
+    }
+
+    /* 每一句话独立居中 */
+    .sentence {
+      text-align: center;
+      margin: 12px 0;
+      padding: 0 10px;
+    }
+
+    /* ===== 关键词高亮样式（保持不变）===== */
+    .highlight-date {
+      background: linear-gradient(120deg, #ffebee 0%, #e3f2fd 100%);
+      padding: 0 4px;
+      border-radius: 4px;
+      font-weight: 600;
+      color: #d32f2f;
+    }
+    .highlight-time {
+      color: #5a9bd9;
+      font-weight: 600;
+    }
+    .highlight-place,
+    .highlight-person {
+      color: #388e3c;
+      font-style: italic;
+    }
+    .highlight-food,
+    .highlight-drink {
+      background: #fff8e1;
+      padding: 0 3px;
+      border-radius: 3px;
+      color: #e65100;
+    }
+    .highlight-action {
+      text-decoration: underline wavy #a8d8ff;
+      text-underline-offset: 3px;
+    }
+    .highlight-number {
+      font-family: monospace;
+      color: #6a1b9a;
+      font-weight: bold;
+    }
+    .highlight-gear,
+    .highlight-instrument {
+      background: #e8f5e9;
+      padding: 0 4px;
+      border-radius: 4px;
+      color: #2e7d32;
+    }
+    .highlight-mode,
+    .highlight-event {
+      display: inline-block;
+      background: #f3e5f5;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.95em;
+      color: #7b1fa2;
+    }
+    .highlight-first {
+      color: #ad1457;
+      font-weight: 600;
+    }
+    .highlight-secret {
+      position: relative;
+    }
+    .highlight-secret::after {
+      content: "✨";
+      position: absolute;
+      top: -0.8em;
+      right: -0.8em;
+      font-size: 0.8em;
+      opacity: 0.7;
+    }
+    .highlight-struggle {
+      color: #5d4037;
+      opacity: 0.9;
+    }
+    .highlight-solution,
+    .highlight-growth {
+      color: #2e7d32;
+      font-weight: 600;
+    }
+    .highlight-exercise {
+      background: #e0f7fa;
+      padding: 0 4px;
+      border-radius: 4px;
+      color: #006064;
+    }
+    .highlight-humor {
+      animation: shake 2s infinite;
+      color: #d50000;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-2px); }
+      75% { transform: translateX(2px); }
+    }
+    .highlight-photo {
+      color: #c2185b;
+      font-weight: 600;
+    }
+    .highlight-quote {
+      display: inline-block;
+      background: #fff3e0;
+      padding: 2px 8px;
+      border-left: 3px solid #ff9800;
+      color: #e65100;
+      font-style: italic;
+    }
+    .highlight-feeling,
+    .highlight-mood {
+      color: #ec407a;
+      font-weight: 600;
+    }
+    .highlight-gift {
+      background: #f8bbd0;
+      padding: 0 4px;
+      border-radius: 4px;
+      color: #ad1457;
+    }
+    .highlight-team {
+      background: #e1f5fe;
+      padding: 0 4px;
+      border-radius: 4px;
+      color: #0288d1;
+    }
+    .highlight-scent {
+      color: #7cb342;
+    }
+    .highlight-regret {
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+    .highlight-role {
+      background: #ede7f6;
+      padding: 0 4px;
+      border-radius: 4px;
+      color: #5e35b1;
+    }
+    .highlight-benefit {
+      color: #0097a7;
+      font-weight: 600;
+    }
+    .highlight-item {
+      background: #f1f8e9;
+      padding: 0 4px;
+      border-radius: 4px;
+      color: #689f38;
+    }
+    .highlight-wish {
+      color: #2196f3;
+      font-weight: 600;
+    }
+    .highlight-luck {
+      color: #ff9800;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    .highlight-cute {
+      color: #f50057;
+    }
+
+    /* emoji 样式统一 */
+    .emoji {
+      display: inline-block;
+      margin: 0 2px;
+      vertical-align: middle;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
+    }
+
+    /* 结尾寄语 */
+    .closing {
+      text-align: center;
+      margin-top: 50px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      color: #666;
+      line-height: 1.8;
+      font-size: 1.1em;
+    }
+
+    .finale {
+      font-style: normal; /* 👈 关键：强制非斜体 */
+      background: linear-gradient(135deg, #ffeaa7, #fab1a0, #fd79a8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+      font-size: 1.4em;
+      text-align: center;
+      line-height: 1.6;
+      padding: 24px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(253, 121, 168, 0.3);
+      backdrop-filter: blur(4px);
+      border: 2px dashed rgba(255, 255, 255, 0.7);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #999;
+      font-size: 0.9em;
+    }
+    .footer-decor {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.4em;
+      opacity: 0.7;
+      animation: float 8s infinite ease-in-out;
+    }
+    .footer-decor span {
+      margin: 0 8px;
+      display: inline-block;
+      animation: bounce 3s infinite;
+      animation-delay: calc(var(--i) * 0.3s);
+    }
+    .footer-decor span:nth-child(1) { --i: 1; }
+    .footer-decor span:nth-child(2) { --i: 2; }
+    .footer-decor span:nth-child(3) { --i: 3; }
+    .footer-decor span:nth-child(4) { --i: 4; }
+    .footer-decor span:nth-child(5) { --i: 5; }
+    /* 动画入场 */
+    .event {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    .event:nth-child(1) { animation-delay: 0.2s; }
+    .event:nth-child(2) { animation-delay: 0.4s; }
+    .event:nth-child(3) { animation-delay: 0.6s; }
+    .event:nth-child(4) { animation-delay: 0.8s; }
+    .event:nth-child(5) { animation-delay: 1.0s; }
+    .event:nth-child(6) { animation-delay: 1.2s; }
+    .event:nth-child(7) { animation-delay: 1.4s; }
+    .event:nth-child(8) { animation-delay: 1.6s; }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- 生成漂浮泡泡 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const colors = ['#e0f0ff', '#f0e6ff', '#fff0f5', '#e6f9f0'];
+      for (let i = 0; i < 15; i++) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        const size = 30 + Math.random() * 60;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${Math.random() * 100}%`;
+        bubble.style.top = `${Math.random() * 100}%`;
+        bubble.style.opacity = 0.4 + Math.random() * 0.3;
+        bubble.style.animationDelay = `${Math.random() * 10}s`;
+        bubble.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        document.body.appendChild(bubble);
+      }
+    });
+  </script>
+
+  <div class="container">
+    <div class="cover">
+      <h1>2025年度报告</h1>
+      <p>叮！🐷🐷的2025专属年度记已呈递，这一年步履不停，从校园到职场，从实验室到人间烟火，凝于字间。</p>
+    </div>
+
+    <!-- 年度高光 -->
+    <div class="highlights">
+      <div class="highlight-card">
+        <div class="card-title">🚢 采样收官 · 进度 <span class="progress">8/8</span></div>
+        <div class="card-text">依旧是连轴 20h，依旧是嘴里那口“香到跺脚”的船家饭。</div>
+      </div>
+    <div class="highlight-card">
+      <div class="card-title">☕ 第一杯手作拉花<span class="latte-art"></span></div>
+      <div class="card-text"><span class="highlight-humor">谁懂啊！！</span>在便利店当学徒</div>
+      <div class="card-text">做出人生第一朵<span class="highlight-drink">拿铁拉花</span>～</div>
+    </div>
+      <div class="highlight-card">
+        <div class="card-title">📸 人生毕业照<span class="photo-effect">有</span></div>
+        <div class="card-text">Q：什么是人生毕业照呢？</div>
+        <div class="card-text">A：和好友一起，就是 <span class="yuanqi">元气</span> 的模样！</div>
+      </div>
+      <div class="highlight-card">
+        <div class="card-title">🎓 签下人生第一份工！</div>
+        <div class="card-text">从白大褂切换到职场工牌，</div>
+        <div class="card-text">人生新副本 <span class="loading">加载中…</span></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 时间轴正文（每句独立居中 + 小标题美化） -->
+    <div class="event">
+      <div class="event-title"><span>启行</span></div>
+      <div class="event-content">
+        <div class="sentence">一月寒风飕飕，日子被忙碌塞得满满。</div>
+        <div class="sentence"><span class="highlight-date">9日</span>，上午完成<span class="highlight-action">学术汇报</span>，转身就冲下午的<span class="highlight-action">无领导小组面试</span>了。</div>
+        <div class="sentence">
+          <div class="photo-row">
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c2871222f.webp" alt="">
+              <figcaption>学术汇报ing</figcaption>
+            </figure>
+
+          </div>
+        </div>
+   
+        <div class="sentence"><span class="highlight-time">18日，凌晨5:20</span>起床，给司机师傅发完进校码，照着月光扫开一辆<span class="highlight-place">月包小蓝车</span></div>
+        <div class="sentence">揣着彰武路转角的<span class="highlight-food">双皮馒头</span>和<span class="highlight-food">热豆浆</span>往南校区赶。</div>
+        <div class="sentence">采水器装满后备箱，<span class="emoji">🚐</span>突突突上路，司机师傅一路讲着俏皮的<span class="highlight-dialect">南通话</span>——</div>
+        <div class="sentence">“你们吃了早饭，车子也要吃早饭了”，然后，加油站到了。</div>
+        <div class="sentence">
+        <div class="photo-row">
+          <figure>
+            <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992d00c2a817.webp" alt="">
+            <figcaption>路过在准备早饭的食堂</figcaption>
+          </figure>
+          <figure>
+            <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992cf56356e9.webp" alt="">
+            <figcaption>清晨的船头</figcaption>
+          </figure>
+        </div>
+      </div>
+        
+      
+        <div class="sentence">任务：把<span class="highlight-number">17桶冬日的长江水</span>从南通带回上海的实验室检测。</div>
+        <div class="sentence">
+          <div class="photo-row">
+            <figure>
+              <img src="https://img.cdn1.vip/i/6992bd2127966_1771224353.webp" alt="">
+              <figcaption>采水器出浴</figcaption>
+            </figure>
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992ccdd1f26a.webp" alt="">
+              <figcaption>我的战场</figcaption>
+            </figure>
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c29cd8ab6.webp" alt="永远好吃到跺脚的船老板娘农家饭">
+              <figcaption>永远好吃到跺脚的船上农家饭</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="sentence"><span class="highlight-time">21点的实验室</span>，陪伴我的是<span class="emoji">🌕</span>、<span class="emoji">⭐️</span>、<span class="emoji">🐱</span>和<span class="highlight-gear">📷</span>。</div>
+        <div class="sentence"><img src="https://img.cdn1.vip/i/6992bd285bac5_1771224360.webp" alt="打卡乱乱的实验台，用上了新的go3s" class="event-img"></div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-title"><span>沉研</span></div>
+      <div class="event-content">
+        <div class="sentence"><span class="highlight-time">2月22日21:35</span>，校园最后一个生日，还是逃不过陪伴（<span class="highlight-humor">zhemo</span>）了三年的<span class="highlight-instrument">测汞仪</span>。</div>
+        <div class="sentence">
+          <div class="photo-row">
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c286168ce.webp" alt="">
+              <figcaption>白大褂皮肤</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="sentence"><span class="highlight-temp">16℃</span>为了金贵仪器而保持恒冷的实验室，不是是混了什么的古怪气味穿过滤炭口罩钻鼻子，那是<span class="highlight-smell">实验室特有的味道</span>，最初的科研热情已降温。</div>
+        <div class="sentence">生日当天，大概也累计解锁了第<span class="highlight-number">1000+</span>个实验样品。</div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-title"><span>尝新</span></div>
+      <div class="event-content">
+        <div class="sentence">3月开启<span class="highlight-mode">半工半读模式</span>，一尺三分的<span class="highlight-place">便利店柜台</span>，成了我的全新体验卡。</div>
+        
+        <div class="sentence"><span class="highlight-routine">补货、收银的日常</span>，相册被各大便利店霸屏。</div>
+        <div class="sentence">
+          <div class="photo-row">
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c289006ec.webp" alt="">
+              <figcaption>三尺柜台</figcaption>
+            </figure>
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c299513d0.webp" alt="">
+              <figcaption>我第一个成功的拉花！</figcaption>
+            </figure>
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c29c2716d.webp" alt="">
+              <figcaption>我第一杯调的鸡尾酒！</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="sentence"><span class="highlight-person">鸡尾酒店长</span>爱捯饬，每周<span class="highlight-event">showtime</span>都存了不少美照。</div>
+        <div class="sentence">
+          <div class="photo-row">
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c28b8f94f.webp" alt="">
+              <figcaption>店长特调1</figcaption>
+            </figure>
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c295afa17.webp" alt="">
+              <figcaption>店长特调2</figcaption>
+            </figure>
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c28ae5c29.webp" alt="">
+              <figcaption>被投喂隐藏款巧克力shaking</figcaption>
+            </figure>
+          </div>
+        </div>
+        
+        <div class="sentence">站在柜台后，撞见了完全不一样的人和生活。</div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-title"><span>破困</span></div>
+      <div class="event-content">
+        <div class="sentence">4月，<span class="highlight-struggle">实验数据摸不到规律</span>，<span class="highlight-routine">便利店日常只剩机械重复</span>，索性靠<span class="highlight-solution">健身</span>找回生活的掌控感，付出就有实打实的收获。罗马尼亚深蹲</span>真的<span class="highlight-humor">魔鬼</span>！</div>
+        <div class="sentence">此处省略3张图片🏋️🏋️🏋️💪💪💪<span class="highlight-exercise"></div>
+        <div class="sentence">返校了，嗦一口食堂的<span class="highlight-food">嵊州炒年糕</span>。</div>
+        <div class="sentence">
+          <div class="photo-row">
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c29f5035f.webp" alt="">
+              <figcaption>食堂的鲜美嵊州炒年糕</figcaption>
+            </figure> 
+          </div>
+        </div> 
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-title"><span>毕业</span></div>
+      <div class="event-content">
+        <div class="sentence">5月，<span class="highlight-season">毕业季</span>。</div>
+        <div class="sentence"><span class="highlight-date">15日</span>。一年的采样终于收官，从<span class="highlight-growth">手忙脚乱</span>到<span class="highlight-growth">淡定应对</span>，手里的解法越来越多。</div>
+        <div class="sentence">
+          <div class="photo-row">
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992ccd0a51d7.webp" alt="">
+              <figcaption>获得渔政船体验卡</figcaption>
+            </figure>
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992ccd0652ba.webp" alt="">
+              <figcaption>犹记第一次上船老板娘给的烙饼</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="sentence">因好友而拥有了<span class="highlight-photo">毕业照</span>。</div>
+        <div class="sentence">当时只道是寻常，回看才感叹：<span class="highlight-quote">哦莫，当时的我怎么那么元气啊</span>。</div>
+        <div class="sentence"><img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992d56565b82.webp"" alt="毕业照1" class="event-img"></div> 
+        <div class="sentence"><img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992d565ecd9f.webp"" alt="毕业照2" class="event-img"></div> 
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-title"><span>旅行</span></div>
+      <div class="event-content">
+        <div class="sentence">6月，<span class="highlight-feeling">出游的快乐</span>。</div>
+        <div class="sentence"><span class="highlight-date">9日</span>被好友喊去<span class="highlight-place">泉州</span>，海边<span class="highlight-wind">咸风扑面</span>，合照定格美好。</div>
+        <div class="sentence"><img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c2ae469f4.webp" alt="泉州合照" class="event-img"></div> 
+        <div class="sentence"><span class="highlight-date">11日</span><span class="highlight-event">毕业典礼</span>，穿上学士服接过毕业证
+        <div class="sentence"><img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c2b59ceaf.webp" alt="年级理事合照" class="event-img"></div> 
+        <div class="sentence"><span class="highlight-gift">来自支部书记的手写小卡</span>超暖心。最后一次吃<span class="highlight-food">鱼籽村</span>，和同门好好告别，奔赴下一场山海。</div>
+        <div class="sentence">
+          <div class="photo-row">
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c2ad144c0.webp" alt="">
+              <figcaption>胡书记的手写小卡</figcaption>
+            </figure>
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c2aa2a2f8.webp" alt="">
+              <figcaption>学校旁边的鱼籽村拌饭</figcaption>
+            </figure>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+
+    <!-- 注意：原文跳过7月，此处直接进入8月 -->
+    <div class="event">
+      <div class="event-title"><span>远行</span></div>
+      <div class="event-content">
+        <div class="sentence">8月正式踏入<span class="highlight-new">职场</span>，解锁全新<span class="highlight-mode">成长副本</span>。</div>
+        <div class="sentence">和两位小伙伴窝在<span class="highlight-place">星巴克</span>，对着课题框架<span class="highlight-action">头脑风暴</span>一下午；</div>
+        <div class="sentence">会议室里<span class="highlight-drink">冰美式</span>不离手，赶着重做第二天要汇报的PPT，<span class="highlight-struggle">连轴转的日子格外磨人</span>。</div>
+        <div class="sentence">一次次汇报扎堆来，磨出了点<span class="highlight-humor">培训PTSD</span>，却也在历练中<span class="highlight-growth">飞速成长</span>。</div>
+        <div class="sentence">
+          <div class="photo-row">
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c2b2dbe43.webp" alt="">
+              <figcaption>星巴克brainstorm</figcaption>
+            </figure>
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992c2bf59f3c.webp" alt="">
+              <figcaption>冰美式与PPT</figcaption>
+            </figure>
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992ccee50441.webp" alt="">
+              <figcaption>认真汇报</figcaption>
+            </figure>
+          </div>
+        </div>      
+        <div class="sentence">9月公司培训，<span class="highlight-team">24人组队</span>，三周筹备汇演，全程<span class="highlight-feeling">欢乐拉满</span>。</div>
+       <div class="sentence">
+          <div class="photo-row">
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992cce2a899a.webp" alt="">
+              <figcaption>试试头套合不合“头”</figcaption>
+            </figure>
+            <figure>
+              <img src=" " alt="">
+              <figcaption> </figcaption>
+            </figure>
+
+          </div>
+        </div>
+        
+        <div class="sentence">去<span class="highlight-place">鲜花港</span>挑花装扮工位，让职场日常飘着<span class="highlight-scent">花香</span></div>
+       
+        <div class="sentence">
+          <div class="photo-row">
+            <figure>
+              <img src=" " alt="">
+              <figcaption> </figcaption>
+            </figure>
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992cce85f787.webp" alt="">
+              <figcaption>鲜花港带回来的美丽🌷🌷</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="event-title"><span>拾趣</span></div>
+      <div class="event-content">
+        <div class="sentence"><span class="highlight-date">11月8日</span>，变身<span class="highlight-role">进博会志愿者</span>，收获满满（物理层面），还有“<span class="highlight-benefit">菁活水自由自由</span>🍀”。</div>
+        <div class="sentence">下班路上偶遇<span class="highlight-item">四叶草盲盒</span>，和店员姐姐念叨想抽中<span class="highlight-wish">蓝色</span>，结果真的抽中了<span class="highlight-luck">!!!</span></div>
+        <div class="sentence">挂好这些<span class="highlight-cute">小可爱</span>下班咯。</div>
+        <div class="sentence">
+          <div class="photo-row">
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992ccef31bde.webp" alt="">
+              <figcaption>四叶草盲盒/figcaption>
+            </figure>
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992cce42cce2.webp" alt="">
+              <figcaption>下班</figcaption>
+            </figure>
+            <figure>
+              <img src="https://youke.xn--y7xa690gmna.cn/s1/2026/02/16/6992de873c581.webp" alt="">
+              <figcaption>玩偶集结</figcaption>
+            </figure>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="event">
+      <div class="event-title"><span>结语</span></div>
+        <div class="event-content">
+          <div class="closing finale">
+            <div>2025，拜拜👋🏻👋🏻</div>
+            <div>2026，你放沙琪🐴过来吧！</div>
+            <div>新一年，我要更 balance 的自己 💫</div>
+          </div>
+        </div>
+    </div>
+
+
+    <div class="footer-decor">
+      <span>☁️</span><span>🫧</span><span>✨</span><span>☁️</span><span>💫</span>
+    </div>
+    
+    <footer>
+      &copy; 2025 猪猪的专属记忆档案 | 致敬每一个认真生活的瞬间
+    </footer>
+    
+  </div>
+</body>
+</html>
+
+
